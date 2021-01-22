@@ -2,13 +2,13 @@
 import sys
 import click
 
-from . import escapement
+from .escapement import escapement
 
 @click.command()
 def main(args=None):
     """Console script for escapement."""
     click.echo("Escapement: Understand your projects")
-    escapement.escapement()
+    escapement()
     return 0
 
 
