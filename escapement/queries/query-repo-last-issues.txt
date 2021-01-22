@@ -1,0 +1,14 @@
+query MyQuery {
+  repository(name: "jupyter_client", owner: "jupyter") {
+    name
+    issues(last: 10) {
+      edges {
+        node {
+          number
+          title
+          url
+        }
+      }
+    }
+  }
+}
