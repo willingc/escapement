@@ -1,6 +1,4 @@
 """Organizations"""
-from escapement import ORGS
 
-
-def list_orgs():
-    return ORGS
+def list_orgs(orgs):
+    print(f'Organizations { orgs }')
