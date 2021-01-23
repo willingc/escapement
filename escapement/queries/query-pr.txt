@@ -1,0 +1,13 @@
+{
+  search(query: "org:python repo:cpython is:pr created:>2019-09-01", type: ISSUE, last: 100) {
+    edges {
+      node {
+        ... on PullRequest {
+          url
+          title
+          createdAt
+        }
+      }
+    }
+  }
+}
