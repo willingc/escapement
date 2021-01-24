@@ -1,0 +1,11 @@
+{
+  repository(owner: "jupyter", name: "jupyter_client") {
+    pullRequest(number: 261) {
+      comments(first: 40) {
+        nodes {
+          body
+          }
+        }
+      }
+    }
+  }

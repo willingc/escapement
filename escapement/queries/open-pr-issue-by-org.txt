@@ -1,0 +1,19 @@
+{
+  organization(login: "jupyterhub") {
+    repositories(first: 26) {
+      totalCount
+      edges {
+        node {
+          name
+          url
+          issues(states: OPEN) {
+            totalCount
+          }
+          pullRequests(states: OPEN) {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}

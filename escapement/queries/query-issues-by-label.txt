@@ -1,0 +1,16 @@
+
+{
+  repositoryOwner(login: "jupyterhub") {
+    repository(name: "jupyterhub") {
+      issues(first: 75, states: [OPEN], labels: ["configuration"]) {
+        edges {
+          node {
+            number
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+}
