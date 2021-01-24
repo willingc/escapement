@@ -1,11 +1,13 @@
 """Main module."""
-from . import orgs
+from decouple import config
 
-ORGS = ['jupyterhub', 'jupyter', 'nteract']
+
+GH_TOKEN = config('GH_TOKEN', default='')
+GH_USER = config('GH_USER', default='')
+
+print(f'GH_TOKEN: {GH_TOKEN}')
+print(f'USER: {GH_USER}')
+
+orgs = ['jupyterhub', 'jupyter', 'nteract', 'jupyter-widgets']
 start_date = '2021-01-01'
 end_date = '2021-01-21'
-# GH_TOKEN get from .env
-
-
-def escapement():
-    orgs.list_orgs(ORGS)
