@@ -5,7 +5,10 @@ from gql.transport.requests import RequestsHTTPTransport
 def query_gql_requests():
     """Query using gql to GitHub v4"""
     transport = RequestsHTTPTransport(
-        url=GH_GQL_ENDPOINT, headers={'Authorization': f'token {GH_TOKEN}'},verify=True, retries=3,
+        url=GH_GQL_ENDPOINT,
+        headers={"Authorization": f"token {GH_TOKEN}"},
+        verify=True,
+        retries=3,
     )
 
     client = Client(transport=transport, fetch_schema_from_transport=True)
