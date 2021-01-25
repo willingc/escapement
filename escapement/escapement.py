@@ -8,5 +8,6 @@ def escapement():
     """Run a query"""
     q = Query(orgs=['jupyter'], repos=['notebook', 'nbconvert'], user='willingc')
     q.display_settings()
+    q.compose_query()
     #result = run_query()
     #generate_report(result)

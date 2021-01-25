@@ -1,4 +1,3 @@
-
 {
   repositoryOwner(login: "jupyterhub") {
     repository(name: "jupyterhub") {

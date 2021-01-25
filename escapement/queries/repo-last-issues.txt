@@ -1,4 +1,4 @@
-query MyQuery {
+query LastIssues {
   repository(name: "jupyter_client", owner: "jupyter") {
     name
     issues(last: 10) {

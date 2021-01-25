@@ -18,6 +18,7 @@ class Query:
         print(f'Query template: {self.query_template}')
 
 
-    def build_query(orgs=None, repos=None, user=None, query_template=None):
-        """Build a gql query"""
-
+    def compose_query(self):
+        """Compose a gql query"""
+        print(f'{self.orgs} {self.repos}')
+        return

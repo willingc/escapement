@@ -1,3 +1,4 @@
+"""Default settings"""
 from decouple import config
 
 # credentials

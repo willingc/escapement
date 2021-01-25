@@ -1,7 +1,9 @@
 """Organizations"""
 
-class OrgList:
+class OrgList(self, names=None):
+    """Represents GitHub organization"""
     def __init__:
-        org_list
+        self.org_list = names
+
     def list_orgs(orgs):
-        print(f'Organizations { orgs }')
+        print(f'Organizations: {orgs}')

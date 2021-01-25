@@ -2,9 +2,7 @@
 import requests
 
 
-
 GH_GQL_ENDPOINT = "https://api.github.com/graphql"
-
 
 
 def connect(url):
@@ -14,15 +12,14 @@ def connect(url):
 def display_query_options():
     return
 
-def prepare_query():
-    # Query content to use in request
-
 def connect_enterprise_account(url, token):
-    # Query a private enterprise account org
+    """Query a private enterprise account org
+
+    GITHUB_ACCESS_TOKEN should have read access for repo and enterprise access
+    """
 
     query="""curl \
     -i -u willingc:$GITHUB_ACCESS_TOKEN \
     -H "Accept: application/vnd.github.v3+json" \
     https://api.github.com/orgs/noteable-io/repos\?type\=private
     """
-    # GITHUB_ACCESS_TOKEN should have read access for repo and enterprise access
