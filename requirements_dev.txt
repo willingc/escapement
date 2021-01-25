@@ -14,3 +14,5 @@ black
 aiohttp
 --pre 'gql[all]'
 python-decouple
+sgqlc
+sgqlc-schemas
