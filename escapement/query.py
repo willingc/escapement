@@ -2,10 +2,9 @@
 import requests
 
 
-GH_REST_ENDPOINT = ""
+
 GH_GQL_ENDPOINT = "https://api.github.com/graphql"
-GQL_QUERIES = {}
-REST_QUERIEs = {}
+
 
 
 def connect(url):

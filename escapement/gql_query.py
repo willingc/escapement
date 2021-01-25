@@ -1,7 +1,8 @@
 from gql import Client, gql
 from gql.transport.aiohttp import AIOHTTPTransport
 
-GH_GQL_ENDPOINT = "https://api.github.com/graphql"
+
+
 
 
 # Select your transport with a defined url endpoint

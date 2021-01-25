@@ -4,6 +4,7 @@ import click
 
 from .escapement import escapement
 
+
 @click.command()
 def main(args=None):
     """Console script for escapement."""

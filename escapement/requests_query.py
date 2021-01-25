@@ -2,31 +2,32 @@
 
 import requests
 
-headers = {"Authorization": "Bearer e2a51bc6c5cdbea017e9ebaa306478360f1de198"}
+from escapement.defaults import GH_TOKEN, GH_GQL_ENDPOINT
 
 
-def run_query(query): # A simple function to use requests.post to make the API call. Note the json= section.
-    request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
+headers = {"Authorization": f"Bearer {GH_TOKEN}"}
+# The GraphQL query (with a few additional bits included) itself defined as a multi-line string.
+new_query = """
+{
+repository(owner: "jupyter", name: "jupyter_client") {
+    pullRequest(number: 261) {
+    comments(first: 40) {
+        nodes {
+        body
+        }
+        }
+    }
+    }
+}
+"""
+
+def run_query():
+    """Run query using requests to graphql endpoint"""
+    request = requests.post(GH_GQL_ENDPOINT,
+        json={'query': new_query}, headers=headers)
+
     if request.status_code == 200:
         return request.json()
     else:
-        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, new_query))
 
-
-# The GraphQL query (with a few aditional bits included) itself defined as a multi-line string.
-query = """
-{
-  repository(owner: "jupyter", name: "jupyter_client") {
-    pullRequest(number: 261) {
-      comments(first: 40) {
-        nodes {
-          body
-          }
-        }
-      }
-    }
-  }
-"""
-
-result = run_query(query) # Execute the query
-print(result)

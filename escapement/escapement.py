@@ -1,13 +1,27 @@
 """Main module."""
-from decouple import config
 
 
-GH_TOKEN = config('GH_TOKEN', default='')
-GH_USER = config('GH_USER', default='')
+#from gql_requests import query_gql_requests
+from escapement.requests_query import run_query
 
-print(f'GH_TOKEN: {GH_TOKEN}')
-print(f'USER: {GH_USER}')
+from escapement.defaults import GH_TOKEN, GH_USER
 
-orgs = ['jupyterhub', 'jupyter', 'nteract', 'jupyter-widgets']
-start_date = '2021-01-01'
-end_date = '2021-01-21'
+
+def escapement():
+    print("Let me escape")
+    display_credentials()
+    query_gql()
+    query_rest()
+    #query_gql_requests()
+    result = run_query()
+    print(result)
+
+def display_credentials():
+    print(f"GH_TOKEN: {GH_TOKEN}")
+    print(f"USER: {GH_USER}")
+
+def query_gql():
+    print('Do a gql query')
+
+def query_rest():
+    print('Do a REST query')
