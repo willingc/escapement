@@ -1,9 +1,12 @@
 """Organizations"""
 
-class OrgList(self, names=None):
-    """Represents GitHub organization"""
+class Organization(self, name=None):
+    """Represents a GitHub organization"""
     def __init__:
-        self.org_list = names
+        self.name = name
+        self.url = None
+        self.repo_list = []
 
-    def list_orgs(orgs):
-        print(f'Organizations: {orgs}')
+
+    def display_org(self):
+        print(f'Organizations: {self.name}')

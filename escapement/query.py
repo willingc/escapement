@@ -1,25 +1,45 @@
-"""Query GitHub API v4 GraphQL or v3 REST"""
-import requests
+"""Query builder"""
+from escapement.defaults import GH_TOKEN, GH_GQL_ENDPOINT
 
 
-GH_GQL_ENDPOINT = "https://api.github.com/graphql"
+composed_query = """
+{
+  repository(name: "nteract", owner: "nteract") {
+    name
+    issues(last: 10) {
+      edges {
+        node {
+          number
+          title
+          url
+        }
+      }
+    }
+  }
+}
+"""
 
 
-def connect(url):
-    """Connect to GitHub endpoint"""
-    return
+class Query:
+    """A graphql query"""
+    def __init__(self, orgs=None, repos=None, user=None, query_template=None):
+        self.orgs = orgs
+        self.repos = repos
+        self.user = user
+        self.query_template = query_template
+        self.configured_query = composed_query
 
-def display_query_options():
-    return
 
-def connect_enterprise_account(url, token):
-    """Query a private enterprise account org
+    def display_settings(self):
+        print('Displaying query settings...')
+        print(f'Orgs: {self.orgs}')
+        print(f'Repos: {self.repos}')
+        print(f'User: {self.user}')
+        print(f'Query template: {self.query_template}')
 
-    GITHUB_ACCESS_TOKEN should have read access for repo and enterprise access
-    """
 
-    query="""curl \
-    -i -u willingc:$GITHUB_ACCESS_TOKEN \
-    -H "Accept: application/vnd.github.v3+json" \
-    https://api.github.com/orgs/noteable-io/repos\?type\=private
-    """
+    def compose_query(self):
+        """Compose a gql query"""
+        print(f'{self.orgs} {self.repos}')
+        configured_query = self.configured_query
+        return configured_query
